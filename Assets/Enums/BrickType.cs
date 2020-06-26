@@ -2,6 +2,7 @@
 {
     public enum BrickType
     {
+        Black = 0,
         White = 1,
         Yellow = 2,
         Lime = 3,

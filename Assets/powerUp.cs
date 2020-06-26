@@ -1,7 +1,7 @@
 ﻿using Assets.Enums;
 using UnityEngine;
 
-public class powerUp : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
     public PowerUpType PowerUpType;
 
