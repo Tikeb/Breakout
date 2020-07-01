@@ -13,7 +13,6 @@ namespace Assets.Levels
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
-            new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White }
         };
 
@@ -27,8 +26,7 @@ namespace Assets.Levels
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Black, BrickType.Black, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Black, BrickType.Black, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
-            new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
-            new BrickType[] { BrickType.White, BrickType.White, BrickType.Black, BrickType.Black, BrickType.White, BrickType.Purple }
+            new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White }
         };
     }
 }

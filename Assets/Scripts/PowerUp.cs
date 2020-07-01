@@ -19,17 +19,17 @@ public class PowerUp : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
 
         if (collision.gameObject.name == "bottom-void")
         {
             Destroy(gameObject);
-            Debug.Log($"Missed powerup of {this.name}");
+            //Debug.Log($"Missed powerup of {this.name}");
         }
         else if (collision.gameObject.name == "player")
         {
             Destroy(gameObject);
-            Debug.Log($"Gained powerup of {this.name} :D");
+            //Debug.Log($"Gained powerup of {this.name} :D");
         }
     }
 }

@@ -23,7 +23,7 @@ public class Ball : MonoBehaviour
     private void Launch()
     {
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
-        rb.velocity = new Vector2(speed * x, speed);
+        rb.velocity = new Vector2(speed * x, -speed);
         //rb.velocity = new Vector2(0, speed);
     }
 
@@ -82,7 +82,7 @@ public class Ball : MonoBehaviour
 
             var speedCurrentDirection = Mathf.Sqrt((currentSpeed.x * currentSpeed.x) + (currentSpeed.y * currentSpeed.y));
 
-            print($"Blah: {speedCurrentDirection}");
+            //print($"Blah: {speedCurrentDirection}");
 
 
             //print($"Distance: {dist}");

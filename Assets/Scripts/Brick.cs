@@ -11,7 +11,10 @@ public class Brick : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (Hits <= 1 && !Unbreakable)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().PlayerScored(Points);
             Destroy(gameObject);
+        }
         Hits--;
     }
 }
