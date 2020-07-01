@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int Lives;
-    public GameObject Ball;
-    public GameObject Player;
-    public GameObject BrickManager;
+    public int lives;
+    public GameObject ball;
+    public GameObject player;
+    public GameObject brickManager;
 
     private int Score = 0;
     private int StartingLives;
 
     private void Start()
     {
-        StartingLives = Lives;
+        StartingLives = lives;
     }
 
     public void PlayerScored(int points)
@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayerLostBall()
     {
-        if (Lives <= 0)
+        if (lives <= 0)
         {
-            Lives = StartingLives;
+            lives = StartingLives;
             Score = 0;
             UpdateScore();
             ResetLives();
@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour
 
     private void ResetPosition(bool resetLevel)
     {
-        Ball.GetComponent<Ball>().Reset();
-        Player.GetComponent<Player>().Reset();
+        ball.GetComponent<Ball>().Reset();
+        player.GetComponent<Player>().Reset();
 
         if (resetLevel)
-            BrickManager.GetComponent<BrickManager>().ResetLevel();
+            brickManager.GetComponent<BrickManager>().ResetLevel();
     }
 
     private void UpdateScore()
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     private void RemoveLife()
     {
-        switch (Lives)
+        switch (lives)
         {
             case 3:
                 GameObject.Find("LifeThreeImg").GetComponent<CanvasGroup>().alpha = 0;
@@ -79,6 +79,6 @@ public class GameManager : MonoBehaviour
                 GameObject.Find("LifeOneImg").GetComponent<CanvasGroup>().alpha = 0;
                 break;
         }
-        Lives--;
+        lives--;
     }
 }

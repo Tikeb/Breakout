@@ -2,16 +2,13 @@
 {
     public enum BrickType
     {
-        Black = 0,
-        White = 1,
-        Yellow = 2,
-        Lime = 3,
-        Green = 4,
-        Blue = 5,
-        Navy = 6,
-        Orange = 7,
-        Red = 8,
-        DarkRed = 9,        
-        Purple = 10
+        None = 0,
+        Brick1 = 1,
+        Brick2 = 2,
+        Brick3 = 3,
+        Brick4 = 4,
+        Brick5 = 5,
+        Brick6 = 6,
+        Unbreakable = 7
     }
 }

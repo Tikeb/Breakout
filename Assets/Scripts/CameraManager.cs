@@ -2,11 +2,10 @@
 
 public class CameraManager : MonoBehaviour
 {
+    public SpriteRenderer background;
+
     void Start()
     {
-        print("hello there");
-
-
         SetupScreen();
         /*// set the desired aspect ratio (the values in this example are
         // hard-coded for 16:9, but you could make them into public
@@ -51,6 +50,24 @@ public class CameraManager : MonoBehaviour
 
     private void SetupScreen()
     {
+        float screenRatio = (float)Screen.width / (float)Screen.height;
+        float targetRatio = background.bounds.size.x / background.bounds.size.y;
+
+        if (screenRatio >= targetRatio)
+        {
+            Camera.main.orthographicSize = background.bounds.size.y / 2;
+        }
+        else
+        {
+            float differenceInSize = targetRatio / screenRatio;
+            Camera.main.orthographicSize = background.bounds.size.y / 2 * differenceInSize;
+        }
+
+
+
+
+
+
         /*
             | y
             |
@@ -61,14 +78,14 @@ public class CameraManager : MonoBehaviour
             |
          */
 
-        var width = Screen.width;
-        var height = Screen.height;
+        //var width = Screen.width;
+        //var height = Screen.height;
 
-        print(width);
+        //print(width);
 
         //var blah = (width / 100f) / 2f;
 
         //GameObject.Find("left-wall").GetComponent<SpriteRenderer>().transform.position = new Vector3(-blah, 0);
-        
+
     }
 }

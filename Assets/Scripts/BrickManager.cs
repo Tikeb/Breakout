@@ -1,7 +1,5 @@
-﻿using Assets.Levels;
-using Assets.Models;
+﻿using Assets.Models;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class BrickManager : MonoBehaviour
@@ -10,6 +8,7 @@ public class BrickManager : MonoBehaviour
     public int rows;
     public int cols;
     public float spacing;
+
     public List<BrickModel> bricks = new List<BrickModel>();
 
     private int level = 1;
@@ -35,34 +34,34 @@ public class BrickManager : MonoBehaviour
         //GenerateLevel();
     }
 
-    private void GenerateLevel()
-    {
-        var level = Levels.LevelOne;
+    //private void GenerateLevel()
+    //{
+    //    var level = Levels.LevelOne;
 
-        for (int x = 0; x < level.Length; x++)
-        {
-            for (int y = 0; y < level[x].Length; y++)
-            {
-                var prefab = prefabs.First(p => p.GetComponent<Brick>().BrickType == level[x][y]);
-                var prefabBrick = prefab.GetComponent<Brick>();
+    //    for (int x = 0; x < level.Length; x++)
+    //    {
+    //        for (int y = 0; y < level[x].Length; y++)
+    //        {
+    //            var prefab = prefabs.First(p => p.GetComponent<Brick>().BrickType == level[x][y]);
+    //            var prefabBrick = prefab.GetComponent<Brick>();
 
-                var spawnPos = startPos +
-                    new Vector2(
-                        x * (prefab.transform.localScale.x + spacing),
-                        -y * (prefab.transform.localScale.y + spacing));
+    //            var spawnPos = startPos +
+    //                new Vector2(
+    //                    x * (prefab.transform.localScale.x + spacing),
+    //                    -y * (prefab.transform.localScale.y + spacing));
 
-                var brick = Instantiate(prefab, spawnPos, Quaternion.identity);
+    //            var brick = Instantiate(prefab, spawnPos, Quaternion.identity);
 
-                var model = new BrickModel
-                {
-                    Brick = brick,
-                    Position = spawnPos,
-                    BrickType = prefabBrick.BrickType
-                };
-                bricks.Add(model);
-            }
-        }
-    }
+    //            var model = new BrickModel
+    //            {
+    //                Brick = brick,
+    //                Position = spawnPos,
+    //                BrickType = prefabBrick.BrickType
+    //            };
+    //            bricks.Add(model);
+    //        }
+    //    }
+    //}
 
     private void RandomLevel()
     {
@@ -73,7 +72,7 @@ public class BrickManager : MonoBehaviour
                 var prefab = prefabs[Random.Range(0, prefabs.Count)];
                 var prefabBrick = prefab.GetComponent<Brick>();
 
-                var fixedSpace = spacing;
+                print($"Local Scale - x: {prefab.transform.localScale.x}");
 
                 var spawnPos = startPos +
                     new Vector2(
@@ -86,7 +85,7 @@ public class BrickManager : MonoBehaviour
                 {
                     Brick = brick,
                     Position = spawnPos,
-                    BrickType = prefabBrick.BrickType
+                    BrickType = prefabBrick.brickType
                 };
                 bricks.Add(model);
             }

@@ -14,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Background
   - 
   - 
   - 
@@ -42,9 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Top
-    uniqueID: 3403913559
-    locked: 0
-  - name: New Layer
+  - name: Background
     uniqueID: 2500245441
+    locked: 0
+  - name: Game
+    uniqueID: 3403913559
     locked: 0

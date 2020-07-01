@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public PowerUpType PowerUpType;
+    public PowerUpType powerUpType;
 
     // Start is called before the first frame update
     void Start()

@@ -23,3 +23,5 @@ $RECYCLE.BIN/
 # =========================
 
 Library/
+Temp/
+Build/

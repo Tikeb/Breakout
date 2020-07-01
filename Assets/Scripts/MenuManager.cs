@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject PlayButton;
-    public GameObject ExitButton;
+    public GameObject playButton;
+    public GameObject exitButton;
 
     // Start is called before the first frame update
     void Start()

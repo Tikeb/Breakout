@@ -269,7 +269,6 @@ D:\Dev\Breakout\Temp\bin\Debug\Unity.TextMeshPro.pdb
 D:\Dev\Breakout\Temp\bin\Debug\UnityEditor.UI.pdb
 D:\Dev\Breakout\Temp\bin\Debug\UnityEditor.TestRunner.pdb
 D:\Dev\Breakout\Temp\bin\Debug\UnityEngine.TestRunner.pdb
-D:\Dev\Breakout\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
 D:\Dev\Breakout\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 D:\Dev\Breakout\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\Dev\Breakout\obj\Debug\Assembly-CSharp.dll

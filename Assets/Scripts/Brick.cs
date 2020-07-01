@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    public int Points;
-    public int Hits;
-    public BrickType BrickType;
-    public bool Unbreakable;
+    public int hits;
+    public int points;
+    public BrickType brickType;
+    public bool unbreakable;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Hits <= 1 && !Unbreakable)
+        if (hits <= 1 && !unbreakable)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().PlayerScored(Points);
+            GameObject.Find("GameManager").GetComponent<GameManager>().PlayerScored(points);
             Destroy(gameObject);
         }
-        Hits--;
+        hits--;
     }
 }

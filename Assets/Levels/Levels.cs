@@ -4,7 +4,7 @@ namespace Assets.Levels
 {
     public static class Levels
     {
-        public static BrickType[][] LevelOne = new BrickType[][] {
+        /*public static BrickType[][] LevelOne = new BrickType[][] {
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
@@ -27,6 +27,6 @@ namespace Assets.Levels
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Black, BrickType.Black, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White },
             new BrickType[] { BrickType.White, BrickType.White, BrickType.Yellow, BrickType.Yellow, BrickType.White, BrickType.White }
-        };
+        };*/
     }
 }
