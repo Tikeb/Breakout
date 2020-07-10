@@ -39,18 +39,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
-
     private void ResetPosition(bool resetLevel)
     {
         ball.GetComponent<Ball>().Reset();
         player.GetComponent<Player>().Reset();
 
         if (resetLevel)
-            brickManager.GetComponent<BrickManager>().ResetLevel();
+            brickManager.GetComponent<BrickManager>().ResetLevel(0);
     }
 
     private void UpdateScore()

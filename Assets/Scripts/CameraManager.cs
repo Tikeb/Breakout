@@ -2,72 +2,36 @@
 
 public class CameraManager : MonoBehaviour
 {
-    public SpriteRenderer background;
+    public SpriteRenderer backgroundRenderer;
+    public SpriteRenderer topWallRenderer;
+    public SpriteRenderer ceilingRenderer;
+
+    public GameObject leftMenuItems;
 
     void Start()
     {
         SetupScreen();
-        /*// set the desired aspect ratio (the values in this example are
-        // hard-coded for 16:9, but you could make them into public
-        // variables instead so you can set them at design time)
-        var targetaspect = 16.0f / 9.0f;
-
-        // determine the game window's current aspect ratio
-        var windowaspect = (float)Screen.width / (float)Screen.height;
-
-        // current viewport height should be scaled by this amount
-        var scaleheight = windowaspect / targetaspect;
-
-        // obtain camera component so we can modify its viewport
-        var camera = GetComponent<Camera>();
-
-        // if scaled height is less than current height, add letterbox
-        if (scaleheight < 1.0f)
-        {
-            Rect rect = camera.rect;
-
-            rect.width = 1.0f;
-            rect.height = scaleheight;
-            rect.x = 0;
-            rect.y = (1.0f - scaleheight) / 2.0f;
-
-            camera.rect = rect;
-        }
-        else // add pillarbox
-        {
-            float scalewidth = 1.0f / scaleheight;
-
-            Rect rect = camera.rect;
-
-            rect.width = scalewidth;
-            rect.height = 1.0f;
-            rect.x = (1.0f - scalewidth) / 2.0f;
-            rect.y = 0;
-
-            camera.rect = rect;
-        }*/
+        SetupCanvas();
     }
 
     private void SetupScreen()
     {
         float screenRatio = (float)Screen.width / (float)Screen.height;
-        float targetRatio = background.bounds.size.x / background.bounds.size.y;
+        float targetRatio = backgroundRenderer.bounds.size.x / backgroundRenderer.bounds.size.y;
 
         if (screenRatio >= targetRatio)
         {
-            Camera.main.orthographicSize = background.bounds.size.y / 2;
+            Camera.main.orthographicSize = backgroundRenderer.bounds.size.y / 2;
         }
         else
         {
             float differenceInSize = targetRatio / screenRatio;
-            Camera.main.orthographicSize = background.bounds.size.y / 2 * differenceInSize;
+            Camera.main.orthographicSize = backgroundRenderer.bounds.size.y / 2 * differenceInSize;
         }
+    }
 
-
-
-
-
-
+    private void SetupCanvas()
+    {
         /*
             | y
             |
@@ -78,14 +42,15 @@ public class CameraManager : MonoBehaviour
             |
          */
 
-        //var width = Screen.width;
-        //var height = Screen.height;
+        var ceiling = ceilingRenderer.transform.localPosition.y; //4.95
+        var top = topWallRenderer.transform.localPosition.y; //4.27
+        var blah = top;
 
-        //print(width);
+        print($"Ceiling: {ceiling}");
+        print($"Top: {top}");
+        print($"Menu: {leftMenuItems.transform.localPosition.y}");
 
-        //var blah = (width / 100f) / 2f;
-
-        //GameObject.Find("left-wall").GetComponent<SpriteRenderer>().transform.position = new Vector3(-blah, 0);
+        //leftMenuItems.transform.localPosition = new Vector3(leftMenuItems.transform.localPosition.x, top * 100);
 
     }
 }
