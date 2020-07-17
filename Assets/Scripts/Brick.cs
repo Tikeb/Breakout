@@ -1,4 +1,5 @@
 ﻿using Assets.Enums;
+using Assets.Models;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
@@ -12,8 +13,14 @@ public class Brick : MonoBehaviour
     {
         if (hits <= 1 && !unbreakable)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().PlayerScored(points);
+            // Temp - do not declare every fkin time!!
+            var gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            var brickManager = GameObject.Find("BrickManager").GetComponent<BrickManager>();
+
+            gameManager.PlayerScored(points);
+            
             Destroy(gameObject);
+            brickManager.remainingBricks--;
         }
         hits--;
     }

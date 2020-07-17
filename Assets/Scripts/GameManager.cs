@@ -4,9 +4,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int lives;
-    public GameObject ball;
-    public GameObject player;
-    public GameObject brickManager;
+    public Ball ball;
+    public Player player;
+    public BrickManager brickManager;
+    public GameMenuManager menuManager;
+
+    public bool isStarted = false;
+    public bool isPaused = false;
 
     private int Score = 0;
     private int StartingLives;
@@ -41,11 +45,12 @@ public class GameManager : MonoBehaviour
 
     private void ResetPosition(bool resetLevel)
     {
-        ball.GetComponent<Ball>().Reset();
-        player.GetComponent<Player>().Reset();
+        ball.Reset();
+        player.Reset();
+        isStarted = false;
 
         if (resetLevel)
-            brickManager.GetComponent<BrickManager>().ResetLevel(0);
+            brickManager.ResetLevel();
     }
 
     private void UpdateScore()

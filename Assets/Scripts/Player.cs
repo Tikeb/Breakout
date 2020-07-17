@@ -3,22 +3,40 @@
 public class Player : MonoBehaviour
 {
     public float speed;
+    public Vector3 startPosition;
     public Rigidbody2D rb;
     public GameObject ball;
-    public Vector3 startPosition;
+    public GameObject game;
 
+    private GameManager gameManager;
+    private Ball ballScript;
     private float movement;
-    private bool jump;
 
     private void Start()
     {
         startPosition = transform.position;
+        ballScript = ball.GetComponent<Ball>();
+        gameManager = game.GetComponent<GameManager>();
     }
 
     private void Update()
     {
         movement = Input.GetAxisRaw("Horizontal");
-        jump = Input.GetButtonDown("Jump");
+
+        // If the game has not started then move the ball with the paddle
+        if (!gameManager.isStarted)
+        {
+            // When the user presses the space bar (jump), launch the ball
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (!gameManager.isStarted)
+                {
+                    ballScript.Launch();
+                    gameManager.isStarted = true;
+                    gameManager.isPaused = false;
+                }
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -27,14 +45,9 @@ public class Player : MonoBehaviour
         rb.velocity = velocity;
 
         // If the game has not started then move the ball with the paddle
-        var ballScript = ball.GetComponent<Ball>();
-        if (!ballScript.ballInPlay)
+        if (!gameManager.isStarted)
         {
             ball.GetComponent<Rigidbody2D>().velocity = velocity;
-
-            // When the user presses the space bar (jump), launch the ball
-            if (jump)
-                ballScript.Launch();
         }
     }
 

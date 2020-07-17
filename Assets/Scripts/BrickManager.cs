@@ -7,34 +7,40 @@ using UnityEngine;
 
 public class BrickManager : MonoBehaviour
 {
-    public Vector2 startPos;
+    public Vector2 startPosition;
     public int rows;
     public int cols;
     public float spacing;
 
     public List<BrickModel> bricks = new List<BrickModel>();
+    public int remainingBricks = 0;
 
     private int level = 1;
     private List<GameObject> prefabs = new List<GameObject>();
 
-    // Start is called before the first frame update
     void Start()
     {
         GeneratePrefabs();
-        ResetLevel(2);
+        ResetLevel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public void ResetLevel(int level)
+    public void ResetLevel()
     {
         bricks.ForEach(x => { Destroy(x.Brick); });
         bricks.Clear();
-        //RandomLevel();
-        GenerateLevel(level);
+        remainingBricks = 0;
+
+        if (level == 0)
+            RandomLevel();
+        else
+            GenerateLevel(level);
+    }
+
+    public void NextLevel()
+    {
+        if (level > 0)
+            level++;
+        ResetLevel();
     }
 
     private void GenerateLevel(int levelToLoad)
@@ -48,13 +54,10 @@ public class BrickManager : MonoBehaviour
         {
             for (int y = 0; y < level[x].Length; y++)
             {
-
-
-
                 var prefab = prefabs.First(p => p.GetComponent<Brick>().brickType == level[x][y]);
                 var prefabBrick = prefab.GetComponent<Brick>();
 
-                var spawnPos = startPos +
+                var spawnPos = startPosition +
                     new Vector2(
                         x * (prefab.transform.localScale.x + spacing),
                         -y * (prefab.transform.localScale.y + spacing));
@@ -67,10 +70,16 @@ public class BrickManager : MonoBehaviour
                     Position = spawnPos,
                     BrickType = prefabBrick.brickType
                 };
+
                 bricks.Add(model);
+
+                if (prefabBrick.brickType != BrickType.None && prefabBrick.brickType != BrickType.Unbreakable)
+                    remainingBricks++;
             }
         }
     }
+
+    // Refactor these two methods to remove duplicate code
 
     private void RandomLevel()
     {
@@ -85,7 +94,7 @@ public class BrickManager : MonoBehaviour
                         x * (prefabs[0].transform.localScale.x + spacing),
                         -y * (prefabs[0].transform.localScale.y + spacing));
 
-                var spawnPos = startPos + brickSpace;
+                var spawnPos = startPosition + brickSpace;
 
                 if (randomNum < prefabs.Count)
                 {
@@ -99,6 +108,9 @@ public class BrickManager : MonoBehaviour
                         Position = spawnPos,
                         BrickType = prefabBrick.brickType
                     };
+
+                    if (prefabBrick.brickType != BrickType.None && prefabBrick.brickType != BrickType.Unbreakable)
+                        remainingBricks++;
                 }
                 else
                 {

@@ -10,6 +10,7 @@ namespace Assets.Models
             Hits = 0;
         }
 
+        public int Id { get; set; }
         public GameObject Brick { get; set; }
         public Vector2 Position { get; set; }
         public BrickType BrickType { get; set; }
