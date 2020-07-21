@@ -4,7 +4,10 @@ using UnityEngine;
 public class GameMenuManager : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject gameOverMenu;
+    public GameObject nextLevelMenu;
     public GameManager gameManager;
+    public BrickManager brickManager;
 
     private MenuController menuContoller;
 
@@ -16,7 +19,7 @@ public class GameMenuManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown("Cancel"))
-            PauseGame();
+            PauseGame(pauseMenu);
     }
 
     public void MainMenu()
@@ -24,17 +27,45 @@ public class GameMenuManager : MonoBehaviour
         menuContoller.PreviousScene();
     }
 
-    public void PauseGame()
+    public void ReplayLevel()
+    {
+        brickManager.ResetLevel();
+
+        PauseGame(gameOverMenu);
+
+    }
+
+    public void NextLevel()
+    {
+        brickManager.NextLevel();
+    }
+
+    public void TogglePauseMenu()
+    {
+        PauseGame(pauseMenu);
+    }
+
+    public void GameOverMenu()
+    {
+        PauseGame(gameOverMenu);
+    }
+
+    public void NextLevelMenu()
+    {
+        PauseGame(nextLevelMenu);
+    }
+
+    public void PauseGame(GameObject menuItem)
     {
         if (gameManager.isPaused)
         {
-            pauseMenu.SetActive(false);
+            menuItem.SetActive(false);
             Time.timeScale = 1f;
             gameManager.isPaused = false;
         }
         else
         {
-            pauseMenu.SetActive(true);
+            menuItem.SetActive(true);
             Time.timeScale = 0f;
             gameManager.isPaused = true;
         }

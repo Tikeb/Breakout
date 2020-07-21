@@ -21,6 +21,12 @@ public class Brick : MonoBehaviour
             
             Destroy(gameObject);
             brickManager.remainingBricks--;
+
+            if (brickManager.remainingBricks <= 0)
+            {
+                //end game
+                gameManager.EndGame(true);
+            }
         }
         hits--;
     }

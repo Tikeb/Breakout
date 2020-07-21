@@ -30,16 +30,29 @@ public class GameManager : MonoBehaviour
     {
         if (lives <= 0)
         {
-            lives = StartingLives;
-            Score = 0;
-            UpdateScore();
-            ResetLives();
-            ResetPosition(true);
+            menuManager.GameOverMenu();
+            //lives = StartingLives;
+            //Score = 0;
+            //UpdateScore();
+            //ResetLives();
+            //ResetPosition(true);
         }
         else
         {
             ResetPosition(false);
             RemoveLife();
+        }
+    }
+
+    public void EndGame(bool win)
+    {
+        if (win)
+        {
+
+        }
+        else
+        {
+
         }
     }
 

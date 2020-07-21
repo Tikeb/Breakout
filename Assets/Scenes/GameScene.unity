@@ -592,7 +592,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 449426970}
+      - m_Target: {fileID: 283911819}
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -722,8 +722,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 449426970}
-        m_MethodName: ResetLevel
+      - m_Target: {fileID: 283911819}
+        m_MethodName: ReplayLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -902,7 +902,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1176786901}
+  gameOverMenu: {fileID: 1537899203}
+  nextLevelMenu: {fileID: 2106699236}
   gameManager: {fileID: 919441515}
+  brickManager: {fileID: 449426970}
 --- !u!4 &283911820
 Transform:
   m_ObjectHideFlags: 0
@@ -1706,6 +1709,7 @@ MonoBehaviour:
   rows: 6
   cols: 8
   spacing: 0.025
+  remainingBricks: 0
 --- !u!4 &449426971
 Transform:
   m_ObjectHideFlags: 0
@@ -2330,8 +2334,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 449426970}
-        m_MethodName: ResetLevel
+      - m_Target: {fileID: 283911819}
+        m_MethodName: ReplayLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
